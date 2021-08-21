@@ -24,7 +24,7 @@ class FloatCart extends Component {
 		isOpen: false
 	};
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		if (nextProps.newProduct !== this.props.newProduct) {
 			this.addProduct(nextProps.newProduct);
 		}

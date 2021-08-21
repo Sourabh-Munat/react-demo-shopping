@@ -5,7 +5,7 @@ import totalReducer from './total/reducer';
 import filtersReducer from './filters/reducer';
 import sortReducer from './sort/reducer';
 
-export default combineReducers({
+export const rootReducer = combineReducers({
   shelf: shelfReducer,
   cart: cartReducer,
   total: totalReducer,

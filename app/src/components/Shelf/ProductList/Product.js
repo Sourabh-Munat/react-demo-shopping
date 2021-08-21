@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import { Thumb } from '../../Thumb';
 import { addProduct } from '../../../services/cart/actions';
 
 const Product = ({ product, addProduct }) => {
@@ -35,11 +34,9 @@ const Product = ({ product, addProduct }) => {
 			{product.isFreeShipping && (
 				<div className="shelf-stopper">Free shipping</div>
 			)}
-			<Thumb
-				classes="shelf-item__thumb"
-				src={`${process.env.PUBLIC_URL}/assets/${product.sku}_1.jpg`}
-				alt={product.title}
-			/>
+			<div className="shelf-item__thumb">
+				<img src={`${process.env.PUBLIC_URL}/assets/${product.sku}_1.jpg`} alt={product.title} />
+			</div>
 			<p className="shelf-item__title">{product.title}</p>
 			<div className="shelf-item__price">
 				<div className="val">

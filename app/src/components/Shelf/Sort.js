@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
 import { updateSort } from '../../services/sort/actions';
-import { Selectbox } from '../Selectbox';
 
 const sortBy = [
 	{ value: '', label: 'Select' },
@@ -11,16 +10,23 @@ const sortBy = [
 	{ value: 'highestprice', label: 'Highest to lowest' }
 ];
 
-const Sort = ({ updateSort, sort }) => (
-	<div className="sort">
-		Order by
-		<Selectbox options={sortBy} handleOnChange={value => updateSort(value)} />
-	</div>
-);
+const Sort = ({ updateSort }) => {
+	return (
+		<div className="sort">
+			Order by
+			<select onChange={e => updateSort(e.target.value)}>
+				{sortBy.map(o => (
+					<option value={o.value} key={o.value}>
+						{o.label}
+					</option>
+				))}
+			</select>
+		</div>
+	)
+};
 
 Sort.propTypes = {
 	updateSort: PropTypes.func.isRequired,
-	sort: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({

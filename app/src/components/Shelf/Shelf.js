@@ -25,7 +25,7 @@ class Shelf extends Component {
 		this.handleFetchProducts();
 	}
 
-	componentWillReceiveProps(nextProps) {
+	UNSAFE_componentWillReceiveProps(nextProps) {
 		const { filters: nextFilters, sort: nextSort } = nextProps;
 		const { filters } = this.props;
 		if (nextFilters.length !== filters.length) {

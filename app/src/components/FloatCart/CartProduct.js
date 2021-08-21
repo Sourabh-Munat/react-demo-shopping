@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-import { Thumb } from '../Thumb';
-
 export const CartProduct = (props) => {
 	const [isMouseOver, setIsMouseOver] = useState(false);
 	const [product] = useState(props.product);
@@ -31,11 +29,9 @@ export const CartProduct = (props) => {
 				onMouseOut={() => setIsMouseOver(false)}
 				onClick={() => props.removeProduct(product)}
 			/>
-			<Thumb
-				classes="shelf-item__thumb"
-				src={`${process.env.PUBLIC_URL}/assets/${product.sku}_2.jpg`}
-				alt={product.title}
-			/>
+			<div className="shelf-item__thumb">
+				<img src={`${process.env.PUBLIC_URL}/assets/${product.sku}_2.jpg`} alt={product.title} />
+			</div>
 			<div className="shelf-item__details">
 				<p className="title">{product.title}</p>
 				<p className="desc">
